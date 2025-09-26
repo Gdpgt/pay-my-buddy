@@ -1,3 +1,5 @@
+-- Attention ! Remplacer les variables ${} par les vraies valeurs 
+
 CREATE USER IF NOT EXISTS '${DB_USER}'@'localhost'
   IDENTIFIED BY '${DB_PASSWORD}';
 
