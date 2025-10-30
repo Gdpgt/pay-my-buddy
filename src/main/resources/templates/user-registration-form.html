@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inscription Utilisateur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" th:href="@{/css/user-registration.css}" />
+  </head>
+  <body>
+    <main>
+      <div class="registration-card">
+        <div class="logo">Pay My buddy</div>
+        <form class="registration-form" th:action="@{/auth/register}" method="post" th:object="${user}">
+          <output id="registration-feedback">
+            <span th:if="${registrationSuccess}" th:text="${registrationSuccess}"></span>
+            <span th:if="${registrationError}" th:text="${registrationError}"></span>
+          </output>
+          <label class="sr-only" for="username">Username</label>
+          <input
+            id="username"
+            th:field="*{username}"
+            type="text"
+            autocomplete="username"
+            placeholder="Username"
+            aria-describedby="username-error" />
+          <p
+            id="username-error"
+            class="field-error"
+            th:if="${#fields.hasErrors('username')}"
+            th:errors="*{username}"></p>
+          <label class="sr-only" for="mail">Mail</label>
+          <input 
+            id="mail" 
+            th:field="*{email}" 
+            type="email"
+            autocomplete="email"
+            placeholder="Mail"
+            aria-describedby="email-error" />
+          <p 
+            id="email-error"
+            class="field-error"
+            th:if="${#fields.hasErrors('email')}"
+            th:errors="*{email}"></p>
+          <label class="sr-only" for="password">Mot de passe</label>
+          <input
+            id="password"
+            th:field="*{password}"
+            type="password"
+            autocomplete="new-password"
+            placeholder="Mot de passe"
+            aria-describedby="password-error" />
+          <p
+            id="password-error"
+            class="field-error"
+            th:if="${#fields.hasErrors('password')}"
+            th:errors="*{password}"></p>
+          <button class="registration-button" type="submit">S'inscrire</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
