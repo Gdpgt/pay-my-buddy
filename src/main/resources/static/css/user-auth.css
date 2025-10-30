@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+body{
+    min-height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+
+.registration-card {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid black;
+    box-shadow: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.logo {
+    padding: 0.75rem;
+    border-radius: 5px;
+    color: white;
+    background-color: orange;
+    font-weight: 600;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+    font-size: medium;
+}
+
+.alert-success {
+    
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.field-error {
+    color: brown;
+    margin-top: 0.25rem;
+}
+
+.registration-button {
+    border-radius: 5px;
+    padding: 0.5rem;
+    color: white;
+    background-color: blue;
+    font-weight: 600;
+}

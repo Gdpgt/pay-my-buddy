@@ -36,10 +36,10 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
-    private Long id;
+    private int id;
 
     @NotBlank
-    @Size(max = 50)
+    @Size(min = 3, max = 50)
     @Column(name = "username", nullable = false, length = 50)
     @ToString.Include
     private String username;
