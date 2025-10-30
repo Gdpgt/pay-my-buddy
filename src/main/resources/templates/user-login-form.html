@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Authentification Utilisateur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" th:href="@{/css/user-auth.css}" />
+  </head>
+  <body>
+    <main>
+      <div class="auth-card">
+        <div class="logo">Pay My buddy</div>
+        <form class="auth-form" th:action="@{/auth/login}" method="post">
+          <output id="auth-feedback">
+            <span th:if="${registrationSuccess}" th:text="${authSuccess}"></span>
+          </output>
+          <label class="sr-only" for="mail">Mail</label>
+          <input 
+            id="mail" 
+            name="email" 
+            type="email"
+            autocomplete="email"
+            placeholder="Mail" />
+          <label class="sr-only" for="password">Mot de passe</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="new-password"
+            placeholder="Mot de passe" />
+          <button class="auth-button" type="submit">Se connecter</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
