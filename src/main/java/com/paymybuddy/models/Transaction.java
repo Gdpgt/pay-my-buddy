@@ -2,6 +2,7 @@ package com.paymybuddy.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -38,10 +39,11 @@ public class Transaction {
     @JoinColumn(name = "receiver_id", nullable = false)
     private User receiver;
 
-    @Size(max = 255)
-    @Column(name = "description", length = 255)
+    @Size(max = 150)
+    @Column(name = "description", length = 150)
     private String description;
 
+    @Positive
     @NotNull
     @Column(name = "amount", nullable = false, precision = 12, scale = 2)
     private BigDecimal amount;

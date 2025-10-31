@@ -5,7 +5,7 @@ CREATE TABLE `users` (
   `id` integer PRIMARY KEY AUTO_INCREMENT,
   `username` varchar(50) UNIQUE NOT NULL,
   `email` varchar(255) UNIQUE NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `balance` decimal(14,2) NOT NULL DEFAULT 0
 );
@@ -14,7 +14,7 @@ CREATE TABLE `transactions` (
   `id` integer PRIMARY KEY AUTO_INCREMENT,
   `sender_id` integer NOT NULL,
   `receiver_id` integer NOT NULL,
-  `description` varchar(255),
+  `description` varchar(150),
   `amount` decimal(12,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
