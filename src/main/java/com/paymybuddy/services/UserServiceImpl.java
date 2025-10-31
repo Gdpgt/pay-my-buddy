@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public User registerUser(UserRegistrationDto userDto) {
+    public void registerUser(UserRegistrationDto userDto) {
 
         String userEmail = userDto.getEmail();
         String username = userDto.getUsername();
@@ -39,6 +39,6 @@ public class UserServiceImpl implements UserService {
         String hashedPassword = encoder.encode(userDto.getPassword());
         User user = userDto.toUser(hashedPassword);
 
-        return userRepository.save(user);
+        userRepository.save(user);
     }
 }
