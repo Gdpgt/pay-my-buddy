@@ -40,7 +40,7 @@ public class User {
 
     @NotBlank
     @Size(min = 3, max = 50)
-    @Column(name = "username", nullable = false, length = 50)
+    @Column(name = "username", nullable = false, length = 50, unique = true)
     @ToString.Include
     private String username;
 
@@ -48,13 +48,13 @@ public class User {
     @Email
     @Size(max = 255)
     @EqualsAndHashCode.Include
-    @Column(name = "email", nullable = false, length = 255)
+    @Column(name = "email", nullable = false, length = 255, unique = true)
     @ToString.Include
     private String email;
 
     @NotBlank
     @Size(min = 8, max = 100)
-    @Column(name = "password", nullable = false, length = 255)
+    @Column(name = "password", nullable = false, length = 100)
     private String password;
 
     @NotNull
