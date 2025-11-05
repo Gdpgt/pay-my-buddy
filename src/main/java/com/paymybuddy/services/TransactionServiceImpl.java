@@ -1,6 +1,7 @@
 package com.paymybuddy.services;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,6 +50,7 @@ public class TransactionServiceImpl implements TransactionService {
             throw new InvalidConnectionException("Cet utilisateur n'est pas enregistré comme relation.", friend.getEmail());
         }
 
+        amount = amount.setScale(2, RoundingMode.HALF_EVEN);
         BigDecimal userBalance = user.getBalance();
 
         if (userBalance.compareTo(amount) < 0) {
