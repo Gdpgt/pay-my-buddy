@@ -25,12 +25,4 @@ public class UserRegistrationDto {
     @Size(min = 8, max = 100)
     private String password;
 
-    public User toUser(String hashedPassword) {
-        User user = new User();
-        user.setUsername(username);
-        user.setEmail(email);
-        user.setPassword(hashedPassword);
-        return user;
-    }
-    
 }

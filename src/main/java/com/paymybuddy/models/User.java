@@ -80,6 +80,12 @@ public class User {
     @OneToMany(mappedBy = "receiver", cascade = CascadeType.ALL)
     private Set<Transaction> receivedTransactions = new HashSet<>();
 
+    public User(String email, String username, String password) {
+        this.email = email;
+        this.username = username;
+        this.password = password;
+    }
+
     @PrePersist
     @PreUpdate
     void normalizeBalance() {

@@ -49,7 +49,7 @@ public class AuthController {
         }
 
         try {
-            userService.registerUser(dto);
+            userService.registerUser(dto.getEmail(), dto.getUsername(), dto.getPassword());
 
         } catch (DataAccessException e) {
             log.error("L'enregistrement de l'utilisateur à l'identifiant {} a échoué.", dto.getEmail());
