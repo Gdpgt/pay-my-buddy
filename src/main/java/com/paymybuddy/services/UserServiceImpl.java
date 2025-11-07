@@ -41,8 +41,12 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public User getUserByEmail(String email) {
-        return userRepository.findByEmail(email)
+        User user = userRepository.findByEmail(email)
             .orElseThrow(() -> new IllegalStateException("User authentifié mais introuvable en BDD : " + email));
+        // .size() sert ici à forcer le chargement des amis du user, car normalement ils ne le sont pas (lazy)
+        user.getConnectionsWithFriends().size();
+        return user;
     }
 }
