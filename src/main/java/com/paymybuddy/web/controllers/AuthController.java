@@ -32,15 +32,12 @@ public class AuthController {
 
     @GetMapping("/register")
     String showRegistrationForm(Model model) {
-        if (!model.containsAttribute("user")) {
-            model.addAttribute("user", new UserRegistrationDto());
-        }
-
+        model.addAttribute("userRegistrationDto", new UserRegistrationDto());
         return "user-registration-form";
     }
 
     @PostMapping("/register")
-    String processRegistration(@Valid @ModelAttribute("user") UserRegistrationDto dto, BindingResult result, Model model, RedirectAttributes ra) {
+    String processRegistration(@Valid @ModelAttribute("userRegistrationDto") UserRegistrationDto dto, BindingResult result, Model model, RedirectAttributes ra) {
         
         if (result.hasErrors()) {
             log.warn("L'enregistrement de l'utilisateur à l'identifiant {} comporte des données non valides.", dto.getEmail());
