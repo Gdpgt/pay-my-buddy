@@ -10,7 +10,7 @@
     <main>
       <div class="registration-card">
         <div class="logo">Pay My buddy</div>
-        <form class="registration-form" th:action="@{/auth/register}" method="post" th:object="${user}">
+        <form class="registration-form" th:action="@{/auth/register}" method="post" th:object="${userRegistrationDto}">
           <output id="registration-feedback">
             <span th:if="${registrationSuccess}" th:text="${registrationSuccess}"></span>
             <span th:if="${registrationError}" th:text="${registrationError}"></span>
