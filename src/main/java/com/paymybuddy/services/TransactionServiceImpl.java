@@ -6,6 +6,7 @@ import java.math.RoundingMode;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.paymybuddy.exceptions.ExceptionContext;
 import com.paymybuddy.exceptions.InsufficientBalanceException;
 import com.paymybuddy.exceptions.InvalidConnectionException;
 import com.paymybuddy.exceptions.InvalidTransferException;
@@ -33,10 +34,10 @@ public class TransactionServiceImpl implements TransactionService {
     , BigDecimal amount, String description) {
 
         User user = userRepository.findByEmail(userEmail)
-        .orElseThrow(() -> new UserNotFoundException("Cet utilisateur n'a pas de compte Pay My Buddy.", userEmail));
+        .orElseThrow(() -> new UserNotFoundException("Cet utilisateur n'a pas de compte Pay My Buddy.", userEmail, ExceptionContext.TRANSFER));
 
         User friend = userRepository.findById(friendId)
-        .orElseThrow(() -> new UserNotFoundException("Cet utilisateur n'a pas de compte Pay My Buddy.", "id inconnu"));
+        .orElseThrow(() -> new UserNotFoundException("Cet utilisateur n'a pas de compte Pay My Buddy.", "id inconnu", ExceptionContext.TRANSFER));
 
         if (amount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new InvalidTransferException("Le montant envoyé ne peut être inférieur ou égal à 0.", userEmail, friend.getEmail(), amount);
@@ -47,7 +48,7 @@ public class TransactionServiceImpl implements TransactionService {
         }
 
         if (!user.getConnectionsWithFriends().contains(friend)) {
-            throw new InvalidConnectionException("Cet utilisateur n'est pas enregistré comme relation.", friend.getEmail());
+            throw new InvalidConnectionException("Cet utilisateur n'est pas enregistré comme relation.", friend.getEmail(), ExceptionContext.TRANSFER);
         }
 
         amount = amount.setScale(2, RoundingMode.HALF_EVEN);
