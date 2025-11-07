@@ -1,8 +1,5 @@
 package com.paymybuddy.web.controllers;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,15 +13,15 @@ import com.paymybuddy.services.UserService;
 import com.paymybuddy.web.dto.UserRegistrationDto;
 
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 
 
+@Slf4j
 @Controller
 @RequestMapping("/auth")
 public class AuthController {
     
     private final UserService userService;
-
-    private static final Logger log = LoggerFactory.getLogger(AuthController.class);
 
     public AuthController(UserService userService) {
         this.userService = userService;
@@ -45,14 +42,7 @@ public class AuthController {
             return "user-registration-form";
         }
 
-        try {
-            userService.registerUser(dto.getEmail(), dto.getUsername(), dto.getPassword());
-
-        } catch (DataAccessException e) {
-            log.error("L'enregistrement de l'utilisateur à l'identifiant {} a échoué.", dto.getEmail());
-            model.addAttribute("registrationError", "Une erreur est survenue, veuillez réessayer.");
-            return "user-registration-form";
-        }
+        userService.registerUser(dto.getEmail(), dto.getUsername(), dto.getPassword());
 
         log.info("L'enregistrement de l'utilisateur à l'identifiant {} a réussi.", dto.getEmail());
         ra.addFlashAttribute("registrationSuccess", "Vous voilà inscrit ! Veuillez maintenant vous identifier.");

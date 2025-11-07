@@ -51,7 +51,7 @@ public class TransferController {
 
         model.addAttribute("friendList", friendList);
         model.addAttribute("userBalance", loggedInUser.getBalance());
-        return "transfer-form";
+        return "transaction-form";
     }
 
 
@@ -65,7 +65,7 @@ public class TransferController {
             model.addAttribute("friendList", friendList);
             model.addAttribute("userBalance", loggedInUser.getBalance());
             model.addAttribute("transferError", "Les données saisies ne sont pas valides");
-            return "transfer-form";
+            return "transaction-form";
         }
 
         transactionService.sendMoney(principal.getName(), dto.getFriendId(), dto.getAmount(), dto.getDescription());
