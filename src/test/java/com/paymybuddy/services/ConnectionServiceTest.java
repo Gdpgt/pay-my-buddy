@@ -2,9 +2,6 @@ package com.paymybuddy.services;
 
 import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Optional;
@@ -21,7 +18,7 @@ import com.paymybuddy.models.User;
 import com.paymybuddy.repositories.UserRepository;
 
 @ExtendWith(MockitoExtension.class)
-public class ConnectionServiceTest {
+class ConnectionServiceTest {
 
     @Mock
     private UserRepository userRepository;
