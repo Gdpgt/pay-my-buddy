@@ -42,7 +42,7 @@ class TransactionServiceTest {
 
 
     @Test
-    void sendMoney_shouldSendMoneyToFriend_whenDataValid() {
+    void sendMoney_shouldSendMoneyToFriend_whenValidData() {
         
         // Prepare
         User userMock = new User("john@lennon.com", "john", "hashedPassword");
