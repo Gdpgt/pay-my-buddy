@@ -28,7 +28,7 @@ class ConnectionServiceTest {
 
 
     @Test
-    void addFriend_shouldAddFriend_whenDataValid() {
+    void addFriend_shouldAddFriend_whenValidData() {
         
         // Prepare
         User userMock = new User("john@lennon.com", "john", "hashedPassword");
