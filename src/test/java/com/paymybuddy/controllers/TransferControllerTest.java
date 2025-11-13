@@ -25,17 +25,17 @@ import com.paymybuddy.web.controllers.TransferController;
 class TransferControllerTest {
 
     @Autowired
-    MockMvc mockMvc;
+    private MockMvc mockMvc;
 
     @MockitoBean
-    UserService userService;
+    private UserService userService;
 
     @MockitoBean
-    TransactionService transactionService;
+    private TransactionService transactionService;
 
 
     @Test
-    void showTransferForm_shouldReturnTransactionForm() throws Exception{
+    void showTransferForm_shouldReturnTransactionFormViewWithDtoAndFriendListAndUserBalance() throws Exception{
 
         User loggedInUser = new User("john@lennon.com", "john", "hashedPassword");
         User friend = new User("yoko@ono.com", "yoko", "hashedPassword");
