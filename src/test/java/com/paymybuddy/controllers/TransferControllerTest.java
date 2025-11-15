@@ -70,14 +70,14 @@ class TransferControllerTest {
     void processTransaction_shouldRedirectToTransferPage_whenValidData() throws Exception {
         
         mockMvc.perform(post("/transfer")
-        .with(user("john@lennon.com"))
-        .with(csrf())
-        .param("friendId", "2") 
-        .param("description", "Cinéma")
-        .param("amount", "10.00"))
-        .andExpect(status().is3xxRedirection())
-        .andExpect(flash().attributeExists("transferInfo"))
-        .andExpect(redirectedUrl("/transfer"));
+               .with(user("john@lennon.com"))
+               .with(csrf())
+               .param("friendId", "2") 
+               .param("description", "Cinéma")
+               .param("amount", "10.00"))
+               .andExpect(status().is3xxRedirection())
+               .andExpect(flash().attributeExists("transferInfo"))
+               .andExpect(redirectedUrl("/transfer"));
     
         verify(transactionService).sendMoney("john@lennon.com", 
                                              2, 
