@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.paymybuddy.models.User;
 import com.paymybuddy.services.TransactionService;
 import com.paymybuddy.services.UserService;
-import com.paymybuddy.web.dto.TransferDto;
+import com.paymybuddy.web.dto.TransactionDto;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -23,13 +23,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Slf4j
 @Controller
-public class TransferController {
+public class TransactionController {
 
     private final UserService userService;
 
     private final TransactionService transactionService;
 
-    public TransferController(UserService userService, TransactionService transactionService) {
+    public TransactionController(UserService userService, TransactionService transactionService) {
         this.userService = userService;
         this.transactionService = transactionService;
     }
@@ -38,7 +38,7 @@ public class TransferController {
     @GetMapping("/transfer")
     public String showTransferForm(Model model, Principal principal, RedirectAttributes ra) {
 
-        model.addAttribute("transferDto", new TransferDto());
+        model.addAttribute("transactionDto", new TransactionDto());
 
         User loggedInUser = userService.getUserByEmail(principal.getName());
         Set<User> friendList = loggedInUser.getConnectionsWithFriends();
@@ -56,7 +56,7 @@ public class TransferController {
 
 
     @PostMapping("/transfer")
-    public String processTransaction(@Valid @ModelAttribute("transferDto") TransferDto dto, BindingResult result, Model model, Principal principal, RedirectAttributes ra) {
+    public String processTransaction(@Valid @ModelAttribute("transactionDto") TransactionDto dto, BindingResult result, Model model, Principal principal, RedirectAttributes ra) {
 
         if (result.hasErrors()) {
             log.warn("La transaction du user {} comporte des données non valides. ID de l'ami : {} , et montant de la transaction : {}€", principal.getName(), dto.getFriendId(), dto.getAmount());

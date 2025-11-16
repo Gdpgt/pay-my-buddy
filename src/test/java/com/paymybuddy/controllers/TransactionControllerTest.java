@@ -19,10 +19,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.paymybuddy.models.User;
 import com.paymybuddy.services.TransactionService;
 import com.paymybuddy.services.UserService;
-import com.paymybuddy.web.controllers.TransferController;
+import com.paymybuddy.web.controllers.TransactionController;
 
-@WebMvcTest(TransferController.class)
-class TransferControllerTest {
+@WebMvcTest(TransactionController.class)
+class TransactionControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -45,7 +45,7 @@ class TransferControllerTest {
         mockMvc.perform(get("/transfer")
                         .with(user("john@lennon.com")))
                .andExpect(status().isOk())
-               .andExpect(model().attributeExists("transferDto"))
+               .andExpect(model().attributeExists("transactionDto"))
                .andExpect(model().attributeExists("friendList"))
                .andExpect(model().attributeExists("userBalance"))
                .andExpect(view().name("transaction-form"));

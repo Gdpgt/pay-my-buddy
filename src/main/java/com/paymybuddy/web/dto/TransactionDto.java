@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TransferDto {
+public class TransactionDto {
 
     @NotNull
     private Integer friendId;
