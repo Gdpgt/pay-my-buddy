@@ -5,7 +5,82 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Transférer de l'argent</title>
 </head>
+
 <body>
-    <h1>Transférer de l'argent</h1>
+  <!-- <div th:replace="~{fragments/header :: header}"></div> -->
+  <div>
+    <form 
+     class="transaction-form" 
+     th:action="@{/transfer}" 
+     method="post" 
+     th:object="${transactionDto}">  
+      <output id="transfer-feedback">
+          <span th:if="${transferInfo}" th:text="${transferInfo}"></span>
+          <span th:if="${transferError}" th:text="${transferError}"></span>
+      </output>  
+
+      <label class="sr-only" for="friendList">Sélectionner une relation</label>
+      <select
+       id="friendList"
+       th:field="*{friendId}"
+       placeholder="Sélectionner une relation">
+        <option 
+         th:each="friend : ${friendList}"
+         th:value="${friend.id}"
+         th:text="${friend.username}">
+        </option>
+      </select>  
+
+      <label class="sr-only" for="description">Description</label>
+      <input
+       id="description"
+       th:field="*{description}"
+       type="text"
+       maxlength="150"
+       placeholder="Description"
+       aria-describedby="description-error" />
+      <p
+       id="description-error"
+       class="field-error"
+       th:if="${#fields.hasErrors('description')}"
+       th:errors="*{description}"></p>
+      
+      <label class="sr-only" for="amount">Montant</label>
+      <input
+       id="amount"
+       th:field="*{amount}"
+       type="number"
+       step="0.01"
+       min="0.01"
+       placeholder="0€"
+       aria-describedby="amount-error" />
+      <p
+       id="amount-error"
+       class="field-error"
+       th:if="${#fields.hasErrors('amount')}"
+       th:errors="*{amount}"></p>
+      
+      <button id="payment-button" class="payment-button">Payer</button>
+    </form>  
+
+    <table>
+      <thead>
+        <tr>Mes transactions</tr>
+        <tr>
+          <th>Relations</th>
+          <th>Description</th>
+          <th>Montant</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+      <tr th:each="transaction : ${transactionList}">
+        <td th:text="${transaction.receiver.username}">Relations</td>
+        <td th:text="${transaction.description}">Description</td>
+        <td th:text="${transaction.formattedAmount}">Montant</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>

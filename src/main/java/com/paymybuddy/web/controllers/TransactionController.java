@@ -51,6 +51,7 @@ public class TransactionController {
 
         model.addAttribute("friendList", friendList);
         model.addAttribute("userBalance", loggedInUser.getBalance());
+        model.addAttribute("transactionList", loggedInUser.getSentTransactions());
         return "transaction-form";
     }
 
@@ -61,9 +62,9 @@ public class TransactionController {
         if (result.hasErrors()) {
             log.warn("La transaction du user {} comporte des données non valides. ID de l'ami : {} , et montant de la transaction : {}€", principal.getName(), dto.getFriendId(), dto.getAmount());
             User loggedInUser = userService.getUserByEmail(principal.getName());
-            Set<User> friendList = loggedInUser.getConnectionsWithFriends();
-            model.addAttribute("friendList", friendList);
+            model.addAttribute("friendList", loggedInUser.getConnectionsWithFriends());
             model.addAttribute("userBalance", loggedInUser.getBalance());
+            model.addAttribute("transactionList", loggedInUser.getSentTransactions());
             model.addAttribute("transferError", "Les données saisies ne sont pas valides");
             return "transaction-form";
         }

@@ -30,6 +30,7 @@ Table user_connections {
     (user_id, friend_id) [pk]
   }
 }
+```
 
 ## Infos :
 Cette application est un prototype. Etant donné que la fonctionnalité d'alimentation du solde n'est pas implémentée, le solde de chaque utilisateur est automatiquement crédité de 100€ lors de l'enregistrement. Cela permet de tester le système d'envoi via l'interface utilisateur.

@@ -64,4 +64,12 @@ public class Transaction {
         }
         return value.setScale(MONETARY_SCALE, RoundingMode.HALF_EVEN);
     }
+
+    public String getFormattedAmount() {
+
+        if (amount.stripTrailingZeros().scale() <= 0) {
+            return amount.intValue() + "€";
+        }
+        return amount + "€";
+    }
 }

@@ -47,6 +47,9 @@ public class UserServiceImpl implements UserService {
             .orElseThrow(() -> new IllegalStateException("User authentifié mais introuvable en BDD : " + email));
         // .size() sert ici à forcer le chargement des amis du user, car normalement ils ne le sont pas (lazy)
         user.getConnectionsWithFriends().size();
+        // .forEach puis getReceiver.getUsername servent ici à forcer le chargement des transactions envoyées
+        // par le user, ainsi que les receivers de ces transactions.
+        user.getSentTransactions().forEach(t -> t.getReceiver().getUsername());
         return user;
     }
 }
