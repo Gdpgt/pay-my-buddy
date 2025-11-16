@@ -57,9 +57,10 @@ public class User {
     @Column(name = "password", nullable = false, length = 100)
     private String password;
 
+    // Ajouté 100€ de solde par défaut car pas encore de fonctio. d'alimentation
     @NotNull
     @Column(nullable = false, precision = 14, scale = 2)
-    private BigDecimal balance = BigDecimal.ZERO.setScale(BALANCE_SCALE, RoundingMode.HALF_EVEN);
+    private BigDecimal balance = new BigDecimal("100.00").setScale(BALANCE_SCALE, RoundingMode.HALF_EVEN);
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)

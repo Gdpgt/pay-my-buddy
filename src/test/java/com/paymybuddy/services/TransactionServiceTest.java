@@ -50,7 +50,6 @@ class TransactionServiceTest {
         User friendMock = new User("yoko@ono.com", "yoko", "hashedPassword");
         friendMock.setId(2);
         userMock.getConnectionsWithFriends().add(friendMock);
-        userMock.setBalance(new BigDecimal("100.00"));
         ArgumentCaptor<Transaction> transactionCaptor = ArgumentCaptor.forClass(Transaction.class);
 
         when(userRepository.findByEmail("john@lennon.com")).thenReturn(Optional.of(userMock));
@@ -71,7 +70,7 @@ class TransactionServiceTest {
         assertEquals(friendMock, savedTransaction.getReceiver());
         assertEquals("Cinéma", savedTransaction.getDescription());
         assertEquals(new BigDecimal("90.00"), userMock.getBalance());
-        assertEquals(new BigDecimal("10.00"), friendMock.getBalance());
+        assertEquals(new BigDecimal("110.00"), friendMock.getBalance());
     }
 
 
@@ -86,7 +85,6 @@ class TransactionServiceTest {
         User friendMock = new User("yoko@ono.com", "yoko", "hashedPassword");
         friendMock.setId(2);
         userMock.getConnectionsWithFriends().add(friendMock);
-        userMock.setBalance(new BigDecimal("100.00"));
         ArgumentCaptor<Transaction> transactionCaptor = ArgumentCaptor.forClass(Transaction.class);
 
         when(userRepository.findByEmail("john@lennon.com")).thenReturn(Optional.of(userMock));
@@ -114,7 +112,6 @@ class TransactionServiceTest {
         User friendMock = new User("yoko@ono.com", "yoko", "hashedPassword");
         friendMock.setId(2);
         userMock.getConnectionsWithFriends().add(friendMock);
-        userMock.setBalance(new BigDecimal("100.00"));
 
         when(userRepository.findByEmail("john@lennon.com")).thenReturn(Optional.of(userMock));
         when(userRepository.findById(2)).thenReturn(Optional.of(friendMock));
@@ -127,7 +124,7 @@ class TransactionServiceTest {
 
         // Assert
         assertEquals(new BigDecimal("0.00"), userMock.getBalance());
-        assertEquals(new BigDecimal("100.00"), friendMock.getBalance());
+        assertEquals(new BigDecimal("200.00"), friendMock.getBalance());
     }
 
 
