@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Profil de l'utilisateur</title>
+</head>
+<body>
+  <!-- <div th:replace="~{fragments/header :: header}"></div> -->
+
+  <div>
+    <dl>
+      <div class="profile-item">
+        <dt>Username</dt>  
+        <dd>@<span th:text="${username}">username</span></dd>
+        <span class="arrow">→</span>
+      </div>
+  
+      <div class="profile-item">
+        <dt>Mail</dt>
+        <dd th:text="${mail}">nom@domain.com</dd>
+        <span class="arrow">→</span>
+      </div>
+  
+      <div class="profile-item">
+        <dt>Mot de passe</dt>
+        <dd>mot de passe</dd>
+        <span class="arrow">→</span>
+      </div>
+    </dl>
+  </div>
+
+  <button class="modify-profile-button" type="button">Modifier</button>
+</body>
+</html>

@@ -14,7 +14,7 @@
         <span th:if="${transferInfo}" th:text="${transferInfo}"></span>
         <span th:if="${transferError}" th:text="${transferError}"></span>
     </output>  
-    
+
     <form 
      class="transaction-form" 
      th:action="@{/transfer}" 
@@ -62,7 +62,7 @@
        th:if="${#fields.hasErrors('amount')}"
        th:errors="*{amount}"></p>
       
-      <button class="payment-button" id="payment-button" type="submit">Payer</button>
+      <button class="payment-button" type="submit">Payer</button>
     </form>  
 
     <table>
