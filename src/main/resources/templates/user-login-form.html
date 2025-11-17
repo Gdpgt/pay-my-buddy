@@ -10,10 +10,12 @@
     <main>
       <div class="auth-card">
         <div class="logo">Pay My buddy</div>
+        
+        <output id="auth-feedback">
+          <span th:if="${registrationSuccess}" th:text="${authSuccess}"></span>
+        </output>
+
         <form class="auth-form" th:action="@{/auth/login}" method="post">
-          <output id="auth-feedback">
-            <span th:if="${registrationSuccess}" th:text="${authSuccess}"></span>
-          </output>
           <label class="sr-only" for="mail">Mail</label>
           <input 
             id="mail" 

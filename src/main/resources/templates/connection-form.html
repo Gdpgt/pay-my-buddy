@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Ajouter un ami</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ajouter une relation</title>
 </head>
+
 <body>
-    <h1>Ajouter un ami</h1>
+  <!-- <div th:replace="~{/fragments/header :: header}"></div> -->
+
+  <div>
+    <h3>Chercher une relation</h3>
+    
+    <output id="connection-feedback">
+      <span th:if="${connectionError}" th:text="${connectionError}"></span>
+    </output>
+    
+    <form 
+     class="connection-form" 
+     th:action="@{/connections}"
+     method="post"
+     th:object="${addFriendDto}">
+    
+
+      <label class="sr-only" for="friendEmail">Saisir une adresse email</label>
+      <input 
+       id="friendEmail"
+       th:field="*{friendEmail}"
+       type="email"
+       maxlength="255"
+       placeholder="Saisir une adresse email"
+       aria-describedby="friendEmail-error" />
+      <p 
+       class="field-error"
+       id="friendEmail-error"
+       th:if="${#fields.hasErrors('friendEmail')}"
+       th:errors="*{friendEmail}"></p>
+
+      <button
+       class="addFriend-button"
+       id="addFriend-button"
+       type="submit">
+        Ajouter
+      </button>
+    </form>
+  </div>
 </body>
 </html>

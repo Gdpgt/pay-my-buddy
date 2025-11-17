@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Transférer de l'argent</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Transférer de l'argent</title>
 </head>
 
 <body>
   <!-- <div th:replace="~{fragments/header :: header}"></div> -->
+
   <div>
+    <output id="transfer-feedback">
+        <span th:if="${transferInfo}" th:text="${transferInfo}"></span>
+        <span th:if="${transferError}" th:text="${transferError}"></span>
+    </output>  
+    
     <form 
      class="transaction-form" 
      th:action="@{/transfer}" 
      method="post" 
      th:object="${transactionDto}">  
-      <output id="transfer-feedback">
-          <span th:if="${transferInfo}" th:text="${transferInfo}"></span>
-          <span th:if="${transferError}" th:text="${transferError}"></span>
-      </output>  
 
       <label class="sr-only" for="friendList">Sélectionner une relation</label>
       <select
@@ -40,8 +42,8 @@
        placeholder="Description"
        aria-describedby="description-error" />
       <p
-       id="description-error"
        class="field-error"
+       id="description-error"
        th:if="${#fields.hasErrors('description')}"
        th:errors="*{description}"></p>
       
@@ -55,12 +57,12 @@
        placeholder="0€"
        aria-describedby="amount-error" />
       <p
-       id="amount-error"
        class="field-error"
+       id="amount-error"
        th:if="${#fields.hasErrors('amount')}"
        th:errors="*{amount}"></p>
       
-      <button id="payment-button" class="payment-button">Payer</button>
+      <button class="payment-button" id="payment-button" type="submit">Payer</button>
     </form>  
 
     <table>
