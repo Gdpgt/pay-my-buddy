@@ -2,8 +2,8 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>Inscription Utilisateur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inscription Utilisateur</title>
     <link rel="stylesheet" th:href="@{/css/user-registration.css}" />
   </head>
   <body>
@@ -14,7 +14,7 @@
           <span th:if="${registrationSuccess}" th:text="${registrationSuccess}"></span>
           <span th:if="${registrationError}" th:text="${registrationError}"></span>
         </output>
-        
+
         <form class="registration-form" th:action="@{/auth/register}" method="post" th:object="${userRegistrationDto}">
           <label class="sr-only" for="username">Username</label>
           <input
