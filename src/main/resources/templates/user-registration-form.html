@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Inscription Utilisateur</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
     <link rel="stylesheet" th:href="@{/css/user-registration.css}" />
   </head>
   <body>
     <main>
       <div class="registration-card">
         <div class="logo">Pay My buddy</div>
-        <output id="registration-feedback">
+        <output class="registration-feedback" id="registration-feedback">
           <span th:if="${registrationSuccess}" th:text="${registrationSuccess}"></span>
           <span th:if="${registrationError}" th:text="${registrationError}"></span>
         </output>

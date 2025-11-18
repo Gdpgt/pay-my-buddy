@@ -1,12 +1,12 @@
 <header th:fragment="header">
-  <div class="header-logo">Pay My Buddy</div>
-  
+  <div>Pay My Buddy</div>
+
   <nav>
     <ul>
-      <li><a class="header-links" th:href="@{/transfer}">Transférer</a></li>
-      <li><a class="header-links" th:href="@{/profile}">Profil</a></li>
-      <li><a class="header-links" th:href="@{/connections}">Ajouter relation</a></li>
-      <li><a class="header-links" href="#">Se déconnecter</a></li>
+      <li><a th:href="@{/transfer}">Transférer</a></li>
+      <li><a th:href="@{/profile}">Profil</a></li>
+      <li><a th:href="@{/connections}">Ajouter relation</a></li>
+      <li><a href="#">Se déconnecter</a></li>
     </ul>
   </nav>
 </header>
