@@ -11,9 +11,8 @@
     <main>
       <div class="registration-card">
         <div class="logo">Pay My buddy</div>
-        <output class="registration-feedback" id="registration-feedback">
-          <span th:if="${registrationSuccess}" th:text="${registrationSuccess}"></span>
-          <span th:if="${registrationError}" th:text="${registrationError}"></span>
+        <output class='flash-feedback' id="registration-feedback">
+          <span th:if="${registrationError}" th:text="${registrationError}" class="field-error"></span>
         </output>
 
         <form class="registration-form" th:action="@{/auth/register}" method="post" th:object="${userRegistrationDto}">

@@ -8,59 +8,61 @@ body{
     background-color: white;
 }
 
-
-.registration-card {
-    width: 300px;
-    padding: 10px;
-    border: 1px solid black;
-    box-shadow: black;
+.auth-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    width: 17rem;
+    min-height: 24rem;
+    padding: 2.5rem;
+    border: 1px solid black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: white;
 }
 
 .logo {
     padding: 0.75rem;
     border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
     color: white;
     background-color: orange;
-    font-weight: 600;
 }
 
-.registration-form {
+.auth-form {
     display: flex;
     flex-direction: column;
+    margin-top: 3rem;
+    padding: 1rem;
     gap: 2rem;
-    padding: 10px;
+}
+
+.auth-form input {
+    width: 11rem;
+    height: 2rem;
+    border: 1px solid #dddcdc;
     border-radius: 5px;
-    border: 1px solid white;
-    font-size: medium;
+    padding-left: 0.3rem;
 }
 
-.alert-success {
-    
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px; height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-}
-
-.field-error {
-    color: brown;
-    margin-top: 0.25rem;
-}
-
-.registration-button {
-    border-radius: 5px;
-    padding: 0.5rem;
-    color: white;
-    background-color: blue;
+.auth-form input::placeholder {
+    font-size: 1rem;
     font-weight: 600;
+    color: #888;
+}
+
+.auth-button {
+    align-self: center;
+    width: 9rem;
+    margin-top: 2rem;
+    border: 1px solid #207FEE;
+    border-radius: 5px;
+    padding: 0.75rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #207FEE;
 }

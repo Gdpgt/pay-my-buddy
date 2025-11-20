@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 body{
     min-height: 100vh;
@@ -15,6 +14,7 @@ body{
     justify-content: flex-start;
     align-items: center;
     width: 17rem;
+    min-height: 24rem;
     padding: 2.5rem;
     border: 1px solid black;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -31,28 +31,19 @@ body{
     background-color: orange;
 }
 
-.registration-feedback {
-    margin-top: 1rem;
-    font-family: 'Inter', sans-serif;
-    font-style: italic;
-    color: #888;
-}
-
 .registration-form {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     padding: 1rem;
     gap: 2rem;
-    border: 1px solid white;
-    border-radius: 5px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
 }
 
 .registration-form input {
     width: 11rem;
     height: 2rem;
+    border: 1px solid #dddcdc;
+    border-radius: 5px;
     padding-left: 0.3rem;
 }
 
@@ -65,9 +56,10 @@ body{
 .registration-button {
     align-self: center;
     width: 7rem;
-    padding: 0.75rem;
+    margin-top: 0.75rem;
     border: 1px solid #207FEE;
     border-radius: 5px;
+    padding: 0.75rem;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     font-weight: 600;

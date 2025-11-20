@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Authentification Utilisateur</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
     <link rel="stylesheet" th:href="@{/css/user-auth.css}" />
   </head>
   <body>
@@ -11,8 +12,9 @@
       <div class="auth-card">
         <div class="logo">Pay My buddy</div>
 
-        <output id="auth-feedback">
-          <span th:if="${registrationSuccess}" th:text="${authSuccess}"></span>
+        <output class="flash-feedback" id="auth-feedback">
+          <span th:if="${registrationSuccess}" th:text="${registrationSuccess}"></span>
+          <span th:if="${param.error}" class="field-error">Email ou mot de passe incorrect.</span>
         </output>
 
         <form class="auth-form" th:action="@{/auth/login}" method="post">
