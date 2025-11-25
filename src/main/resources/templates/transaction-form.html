@@ -5,15 +5,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Transférer de l'argent</title>
   <link rel="stylesheet" th:href="@{/css/common.css}">
+  <link rel="stylesheet" th:href="@{/css/transaction.css}" />
 </head>
 
 <body>
   <div th:replace="~{fragments/header :: header}"></div>
 
-  <div>
-    <output id="transfer-feedback">
-        <span th:if="${transferInfo}" th:text="${transferInfo}"></span>
-        <span th:if="${transferError}" th:text="${transferError}"></span>
+  <main class="transaction-page">
+    <output>
+        <span th:if="${transferInfo}" th:text="${transferInfo}" class="flash-feedback"></span>
+        <span th:if="${transferError}" th:text="${transferError}" class="field-error"></span>
+        <span th:if="${error}" th:text="${error}" class="field-error"></span>
     </output>  
 
     <form 
@@ -24,6 +26,7 @@
 
       <label class="sr-only" for="friendList">Sélectionner une relation</label>
       <select
+       class="relation-input"
        id="friendList"
        th:field="*{friendId}"
        placeholder="Sélectionner une relation">
@@ -36,6 +39,7 @@
 
       <label class="sr-only" for="description">Description</label>
       <input
+       class="description-input"
        id="description"
        th:field="*{description}"
        type="text"
@@ -50,6 +54,7 @@
       
       <label class="sr-only" for="amount">Montant</label>
       <input
+       class="amount-input"
        id="amount"
        th:field="*{amount}"
        type="number"
@@ -68,7 +73,9 @@
 
     <table>
       <thead>
-        <tr>Mes transactions</tr>
+        <tr>
+          <th colspan="1">Mes transactions</th>
+        </tr>
         <tr>
           <th>Relations</th>
           <th>Description</th>
@@ -84,6 +91,6 @@
       </tr>
       </tbody>
     </table>
-  </div>
+  </main>
 </body>
 </html>

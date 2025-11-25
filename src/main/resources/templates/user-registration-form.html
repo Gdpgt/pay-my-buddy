@@ -8,14 +8,13 @@
     <link rel="stylesheet" th:href="@{/css/user-registration.css}" />
   </head>
   <body>
-    <main>
-      <div class="registration-card">
-        <div class="logo">Pay My buddy</div>
-        <output class='flash-feedback' id="registration-feedback">
-          <span th:if="${registrationError}" th:text="${registrationError}" class="field-error"></span>
-        </output>
+    <main class="registration-card">
+      <div class="logo">Pay My buddy</div>
+      <output class='flash-feedback'>
+        <span th:if="${registrationError}" th:text="${registrationError}" class="field-error"></span>
+      </output>
 
-        <form class="registration-form" th:action="@{/auth/register}" method="post" th:object="${userRegistrationDto}">
+      <form class="registration-form" th:action="@{/auth/register}" method="post" th:object="${userRegistrationDto}">
           <label class="sr-only" for="username">Username</label>
           <input
             id="username"
@@ -56,8 +55,7 @@
             th:if="${#fields.hasErrors('password')}"
             th:errors="*{password}"></p>
           <button class="registration-button" type="submit">S'inscrire</button>
-        </form>
-      </div>
+      </form>
     </main>
   </body>
 </html>

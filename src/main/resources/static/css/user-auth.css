@@ -31,6 +31,10 @@ body{
     background-color: orange;
 }
 
+output {
+    margin-top: 2rem;
+}
+
 .auth-form {
     display: flex;
     flex-direction: column;

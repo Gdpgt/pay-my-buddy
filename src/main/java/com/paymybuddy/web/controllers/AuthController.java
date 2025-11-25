@@ -52,7 +52,7 @@ public class AuthController {
 
     @GetMapping("/login")
     public String showLoginForm() {
-        return "user-login-form";
+        return "user-auth-form";
     }
     
 

@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+body {
+    min-height: 100vh;
+    background-color: white;
+}
+
+.transaction-page {
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.transaction-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+
+.transaction-form select {
+    width: 10rem;
+    height: 3rem;
+    padding-left: 0.5rem;
+    border: 1px solid #dddcdc;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+.transaction-form input {
+    height: 3rem;
+    padding-left: 0.5rem;
+    border: 1px solid #dddcdc;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+.transaction-form .amount-input {
+    width: 4rem;
+    height: 4.5rem;
+    font-size: 1rem;
+}
+
+.payment-button {
+    width: 5rem;
+    height: 4.1rem;
+    border: 1px solid #207FEE;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: white;
+    background-color: #207FEE;
+}
+
+table {
+    padding-bottom: 4rem;
+    border: 1px solid #dddcdc;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+}
+
+table tr {
+    display: flex;
+    margin: 0 1rem;
+    padding: 0.5rem;
+    justify-content: space-between;
+}
+
+table thead tr:last-child{
+    border-bottom: 1px solid #dddcdc;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #dddcdc;
+}
+
+table tbody tr:last-child {
+    border-bottom: none;
+}

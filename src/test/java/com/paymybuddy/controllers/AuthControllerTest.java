@@ -68,6 +68,6 @@ class AuthControllerTest {
 
         mockMvc.perform(get("/auth/login"))
                .andExpect(status().isOk())
-               .andExpect(view().name("user-login-form"));
+               .andExpect(view().name("user-auth-form"));
     }
 }

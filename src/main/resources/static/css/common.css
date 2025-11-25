@@ -6,6 +6,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 2rem;
+    font-family: 'Inter', sans-serif;
 }
 
 nav ul {
