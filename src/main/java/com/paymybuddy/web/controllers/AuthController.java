@@ -54,6 +54,4 @@ public class AuthController {
     public String showLoginForm() {
         return "user-auth-form";
     }
-    
-
 }

@@ -53,6 +53,7 @@ body {
     font-size: 1rem;
     color: white;
     background-color: #207FEE;
+    cursor: pointer;
 }
 
 table {

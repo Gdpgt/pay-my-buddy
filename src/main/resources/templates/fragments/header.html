@@ -1,12 +1,18 @@
 <header th:fragment="header">
-  <div>Pay My Buddy</div>
+  <div class="logo-header">Pay My Buddy</div>
 
   <nav>
     <ul>
       <li><a th:href="@{/transfer}">Transférer</a></li>
       <li><a th:href="@{/profile}">Profil</a></li>
       <li><a th:href="@{/connections}">Ajouter relation</a></li>
-      <li><a href="#">Se déconnecter</a></li>
+      <li>
+        <form th:action="@{/logout}" method="post">
+          <button type="submit">
+            Se déconnecter
+          </button>
+        </form>
+      </li>
     </ul>
   </nav>
 </header>

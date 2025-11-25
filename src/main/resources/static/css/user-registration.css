@@ -29,6 +29,7 @@ body{
     font-weight: 600;
     color: white;
     background-color: orange;
+    cursor: default;
 }
 
 output {
@@ -69,4 +70,5 @@ output {
     font-weight: 600;
     color: white;
     background-color: #207FEE;
+    cursor: pointer;
 }

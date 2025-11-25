@@ -9,6 +9,10 @@ header {
     font-family: 'Inter', sans-serif;
 }
 
+.logo-header {
+    cursor: default;
+}
+
 nav ul {
     display: flex;
     list-style: none;
@@ -20,6 +24,16 @@ nav ul {
 nav ul li a {
     text-decoration: none;
     color: black;
+}
+
+
+nav ul li form button {
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    background: none;
+    color: black;
+    cursor: pointer;
 }
 
 .sr-only {
