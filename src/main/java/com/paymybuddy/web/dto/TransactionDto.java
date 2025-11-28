@@ -12,13 +12,13 @@ import lombok.Setter;
 @Setter
 public class TransactionDto {
 
-    @NotNull
+    @NotNull(message = "{validation.friendId.notnull}")
     private Integer friendId;
 
-    @Size(max=150)
+    @Size(max=150, message = "{validation.description.size}")
     private String description;
 
-    @Positive
-    @NotNull
+    @Positive(message = "{validation.amount.positive}")
+    @NotNull(message = "{validation.amount.notnull}")
     private BigDecimal amount;
 }

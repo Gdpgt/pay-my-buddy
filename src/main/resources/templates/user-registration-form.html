@@ -22,7 +22,10 @@
             type="text"
             autocomplete="username"
             placeholder="Username"
-            aria-describedby="username-error" />
+            minlength="3"
+            maxlength="50"
+            aria-describedby="username-error"
+            required />
           <p
             id="username-error"
             class="field-error"
@@ -35,7 +38,9 @@
             type="email"
             autocomplete="email"
             placeholder="Mail"
-            aria-describedby="email-error" />
+            maxlength="255"
+            aria-describedby="email-error"
+            required />
           <p 
             id="email-error"
             class="field-error"
@@ -48,7 +53,10 @@
             type="password"
             autocomplete="new-password"
             placeholder="Mot de passe"
-            aria-describedby="password-error" />
+            minlength="8"
+            maxlength="100"
+            aria-describedby="password-error"
+            required />
           <p
             id="password-error"
             class="field-error"

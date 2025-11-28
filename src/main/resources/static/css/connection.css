@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: white;
+}
+
+.connection-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10rem;
+}
+
+.connection-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.titre-page {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.connection-feedback span {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.connection-form .email-input {
+    width: 16rem;
+    height: 3rem;
+    border: 1px solid #dddcdc;
+    border-radius: 5px;
+    padding-left: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+.connection-form .addFriend-button {
+    margin-left: 1.25rem;
+    border: 1px solid orange;
+    border-radius: 5px;
+    padding: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: white;
+    background-color: orange;
+    cursor: pointer;
+}

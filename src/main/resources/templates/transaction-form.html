@@ -19,54 +19,54 @@
     </output>  
 
     <form 
-     class="transaction-form" 
-     th:action="@{/transfer}" 
-     method="post" 
-     th:object="${transactionDto}">  
+      class="transaction-form" 
+      th:action="@{/transfer}" 
+      method="post" 
+      th:object="${transactionDto}">  
 
       <label class="sr-only" for="friendList">Sélectionner une relation</label>
       <select
-       class="relation-input"
-       id="friendList"
-       th:field="*{friendId}"
-       placeholder="Sélectionner une relation">
+        class="relation-input"
+        id="friendList"
+        th:field="*{friendId}"
+        placeholder="Sélectionner une relation">
         <option 
-         th:each="friend : ${friendList}"
-         th:value="${friend.id}"
-         th:text="${friend.username}">
+          th:each="friend : ${friendList}"
+          th:value="${friend.id}"
+          th:text="${friend.username}">
         </option>
       </select>  
 
       <label class="sr-only" for="description">Description</label>
       <input
-       class="description-input"
-       id="description"
-       th:field="*{description}"
-       type="text"
-       maxlength="150"
-       placeholder="Description"
-       aria-describedby="description-error" />
+        class="description-input"
+        id="description"
+        th:field="*{description}"
+        type="text"
+        maxlength="150"
+        placeholder="Description"
+        aria-describedby="description-error" />
       <p
-       class="field-error"
-       id="description-error"
-       th:if="${#fields.hasErrors('description')}"
-       th:errors="*{description}"></p>
+        class="field-error"
+        id="description-error"
+        th:if="${#fields.hasErrors('description')}"
+        th:errors="*{description}"></p>
       
       <label class="sr-only" for="amount">Montant</label>
       <input
-       class="amount-input"
-       id="amount"
-       th:field="*{amount}"
-       type="number"
-       step="0.01"
-       min="0.01"
-       placeholder="0€"
-       aria-describedby="amount-error" />
+        class="amount-input"
+        id="amount"
+        th:field="*{amount}"
+        type="number"
+        step="0.01"
+        min="0.01"
+        placeholder="0€"
+        aria-describedby="amount-error" />
       <p
-       class="field-error"
-       id="amount-error"
-       th:if="${#fields.hasErrors('amount')}"
-       th:errors="*{amount}"></p>
+        class="field-error"
+        id="amount-error"
+        th:if="${#fields.hasErrors('amount')}"
+        th:errors="*{amount}"></p>
       
       <button class="payment-button" type="submit">Payer</button>
     </form>  

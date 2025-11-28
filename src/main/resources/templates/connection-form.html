@@ -5,46 +5,50 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ajouter une relation</title>
   <link rel="stylesheet" th:href="@{/css/common.css}">
+  <link rel="stylesheet" th:href="@{/css/connection.css}">
 </head>
 
 <body>
   <div th:replace="~{/fragments/header :: header}"></div>
 
-  <div>
-    <h3>Chercher une relation</h3>
-    
-    <output id="connection-feedback">
-      <span th:if="${connectionError}" th:text="${connectionError}"></span>
-    </output>
-    
-    <form 
-     class="connection-form" 
-     th:action="@{/connections}"
-     method="post"
-     th:object="${addFriendDto}">
-    
+  <main class="connection-page">
+    <div class="connection-form-container">
+      <h3 class="titre-page">Chercher une relation</h3>
+      
+      <output class="connection-feedback">
+        <span th:if="${connectionError}" th:text="${connectionError}" class="field-error"></span>
+      </output>
+      
+      <form 
+        class="connection-form" 
+        th:action="@{/connections}"
+        method="post"
+        th:object="${addFriendDto}">
+      
 
-      <label class="sr-only" for="friendEmail">Saisir une adresse email</label>
-      <input 
-       id="friendEmail"
-       th:field="*{friendEmail}"
-       type="email"
-       maxlength="255"
-       placeholder="Saisir une adresse email"
-       aria-describedby="friendEmail-error" />
-      <p 
-       class="field-error"
-       id="friendEmail-error"
-       th:if="${#fields.hasErrors('friendEmail')}"
-       th:errors="*{friendEmail}"></p>
+        <label class="sr-only" for="friendEmail">Saisir une adresse email</label>
+        <input 
+          class="email-input"
+          id="friendEmail"
+          th:field="*{friendEmail}"
+          type="email"
+          maxlength="255"
+          placeholder="Saisir une adresse email"
+          aria-describedby="friendEmail-error" />
+        <p 
+          class="field-error"
+          id="friendEmail-error"
+          th:if="${#fields.hasErrors('friendEmail')}"
+          th:errors="*{friendEmail}"></p>
 
-      <button
-       class="addFriend-button"
-       id="addFriend-button"
-       type="submit">
-        Ajouter
-      </button>
-    </form>
-  </div>
+        <button
+          class="addFriend-button"
+          id="addFriend-button"
+          type="submit">
+          Ajouter
+        </button>
+      </form>
+    </div>
+  </main>
 </body>
 </html>
