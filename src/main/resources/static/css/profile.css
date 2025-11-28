@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: white;
+}
+
+.profile-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10rem;
+}
+
+.profile-items dl {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.profile-items dt {
+    width: 7rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.profile-items dd {
+    font-family: 'Inter', sans-serif;
+    color: rgb(66, 66, 66);
+}
+
+.profile-items dd::after {
+    content: " ›";  /* Ajoute le caractère > après le texte */
+    margin-left: 0.5rem;
+    color: #888;  
+}
+
+.username-item {
+    display: flex;
+}
+
+.email-item {
+    display: flex;
+}
+
+.password-item {
+    display: flex;
+}
+
+.modify-profile-button {
+    width: 6rem;
+    height: 3.25rem;
+    margin-left: 3rem;
+    border: 1px solid orange;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: orange;
+    cursor: pointer;
+}

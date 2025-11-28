@@ -5,32 +5,34 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Profil de l'utilisateur</title>
   <link rel="stylesheet" th:href="@{/css/common.css}">
+  <link rel="stylesheet" th:href="@{/css/profile.css}">
 </head>
+
 <body>
   <div th:replace="~{fragments/header :: header}"></div>
-
-  <div>
-    <dl>
-      <div class="profile-item">
-        <dt>Username</dt>  
-        <dd>@<span th:text="${username}">username</span></dd>
-        <span class="arrow">→</span>
-      </div>
   
-      <div class="profile-item">
-        <dt>Mail</dt>
-        <dd th:text="${mail}">nom@domain.com</dd>
-        <span class="arrow">→</span>
-      </div>
-  
-      <div class="profile-item">
-        <dt>Mot de passe</dt>
-        <dd>mot de passe</dd>
-        <span class="arrow">→</span>
-      </div>
-    </dl>
-  </div>
+  <main class="profile-page">
+    <div class="profile-items">
+      <dl>
+        <div class="username-item">
+          <dt>Username</dt>  
+          <dd>@<span th:text="${username}">username</span></dd>
+        </div>
+    
+        <div class="email-item">
+          <dt>Mail</dt>
+          <dd th:text="${mail}">nom@domain.com</dd>
+        </div>
+    
+        <div class="password-item">
+          <dt>Mot de passe</dt>
+          <dd>mot de passe</dd>
+        </div>
+      </dl>
+    </div>
 
-  <button class="modify-profile-button" type="button">Modifier</button>
+    <button class="modify-profile-button" type="button">Modifier</button>
+
+  </main>
 </body>
 </html>
