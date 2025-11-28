@@ -28,7 +28,7 @@ body{
     font-size: 1rem;
     font-weight: 600;
     color: white;
-    background-color: orange;
+    background-color: #DB642D;
     cursor: default;
 }
 
@@ -55,20 +55,20 @@ output {
 .registration-form input::placeholder {
     font-size: 1rem;
     font-weight: 600;
-    color: #888;
+    color: #757575;
 }
 
 .registration-button {
     align-self: center;
     width: 7rem;
     margin-top: 0.75rem;
-    border: 1px solid #207FEE;
+    border: 1px solid #1173E4;
     border-radius: 5px;
     padding: 0.75rem;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     color: white;
-    background-color: #207FEE;
+    background-color: #1173E4;
     cursor: pointer;
 }

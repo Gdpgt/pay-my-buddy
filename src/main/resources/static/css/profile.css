@@ -33,7 +33,7 @@ body {
 .profile-items dd::after {
     content: " ›";  /* Ajoute le caractère > après le texte */
     margin-left: 0.5rem;
-    color: #888;  
+    color: #757575;  
 }
 
 .username-item {
@@ -52,12 +52,12 @@ body {
     width: 6rem;
     height: 3.25rem;
     margin-left: 3rem;
-    border: 1px solid orange;
+    border: 1px solid #DB642D;
     border-radius: 5px;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     color: white;
-    background-color: orange;
+    background-color: #DB642D;
     cursor: pointer;
 }

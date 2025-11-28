@@ -47,12 +47,13 @@ body {
 .payment-button {
     width: 5rem;
     height: 4.1rem;
-    border: 1px solid #207FEE;
+    border: 1px solid #1173E4;
     border-radius: 5px;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
+    font-weight: 600;
     color: white;
-    background-color: #207FEE;
+    background-color: #1173E4;
     cursor: pointer;
 }
 

@@ -44,12 +44,13 @@ body {
 
 .connection-form .addFriend-button {
     margin-left: 1.25rem;
-    border: 1px solid orange;
+    border: 1px solid #DB642D;
     border-radius: 5px;
     padding: 1rem;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
+    font-weight: 600;
     color: white;
-    background-color: orange;
+    background-color: #DB642D;
     cursor: pointer;
 }

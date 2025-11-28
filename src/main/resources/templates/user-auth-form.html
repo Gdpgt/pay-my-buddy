@@ -9,11 +9,11 @@
   </head>
   <body>
     <main class="auth-card">
-      <div class="logo">Pay My buddy</div>
+      <h1 class="logo">Pay My buddy</h1>
 
-      <output>
+      <output aria-live="polite">
         <span th:if="${registrationSuccess}" th:text="${registrationSuccess}" class="flash-feedback"></span>
-        <span th:if="${param.error}" class="field-error">Email ou mot de passe incorrect.</span>
+        <span th:if="${param.error}" role="alert" class="field-error">Email ou mot de passe incorrect.</span>
       </output>
 
       <form class="auth-form" th:action="@{/auth/login}" method="post">
