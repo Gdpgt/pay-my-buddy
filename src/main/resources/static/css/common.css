@@ -27,6 +27,11 @@ nav ul li a {
     color: black;
 }
 
+nav ul li a.active {
+    color: #207FEE;
+    font-weight: 600;
+}
+
 
 nav ul li form button {
     border: none;

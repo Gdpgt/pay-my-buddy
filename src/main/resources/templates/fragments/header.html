@@ -1,11 +1,14 @@
-<header th:fragment="header">
+<header th:fragment="header(currentPage)">
   <div class="logo-header">Pay My Buddy</div>
 
   <nav>
     <ul>
-      <li><a th:href="@{/transfer}">Transférer</a></li>
-      <li><a th:href="@{/profile}">Profil</a></li>
-      <li><a th:href="@{/connections}">Ajouter relation</a></li>
+      <li><a th:href="@{/transfer}"
+             th:class="${currentPage == 'transfer'} ? 'active' : ''">Transférer</a></li>
+      <li><a th:href="@{/profile}"
+             th:class="${currentPage == 'profile'} ? 'active' : ''">Profil</a></li>
+      <li><a th:href="@{/connections}"
+             th:class="${currentPage == 'connections'} ? 'active' : ''">Ajouter relation</a></li>
       <li>
         <form th:action="@{/logout}" method="post">
           <button type="submit">
