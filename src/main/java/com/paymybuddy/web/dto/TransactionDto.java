@@ -2,6 +2,7 @@ package com.paymybuddy.web.dto;
 
 import java.math.BigDecimal;
 
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
@@ -12,8 +13,11 @@ import lombok.Setter;
 @Setter
 public class TransactionDto {
 
+    // Initialisé à "-1" pour faire en sorte que th:field=*{friendId} dans le form. 
+    // permette le fonctionnement du placeholder
     @NotNull(message = "{validation.friendId.notnull}")
-    private Integer friendId;
+    @Min(value = 1, message = "{validation.friendId.startsAtOne")
+    private Integer friendId = -1;
 
     @Size(max=150, message = "{validation.description.size}")
     private String description;

@@ -30,8 +30,9 @@
         class="relation-input"
         id="friendList"
         th:field="*{friendId}"
-        placeholder="Sélectionner une relation">
-        <option 
+        required>
+        <option value="-1" disabled>Sélectionner une relation</option>
+        <option
           th:each="friend : ${friendList}"
           th:value="${friend.id}"
           th:text="${friend.username}">
@@ -44,8 +45,8 @@
         id="description"
         th:field="*{description}"
         type="text"
-        maxlength="150"
         placeholder="Description"
+        maxlength="150"
         aria-describedby="description-error" />
       <p
         class="field-error"
@@ -62,7 +63,8 @@
         step="0.01"
         min="0.01"
         placeholder="0€"
-        aria-describedby="amount-error" />
+        aria-describedby="amount-error"
+        required />
       <p
         class="field-error"
         id="amount-error"
@@ -75,12 +77,12 @@
     <table>
       <thead>
         <tr>
-          <th colspan="1">Mes transactions</th>
+          <th colspan="3" scope="colgroup">Mes transactions</th>
         </tr>
         <tr>
-          <th>Relations</th>
-          <th>Description</th>
-          <th>Montant</th>
+          <th scope="col">Relations</th>
+          <th scope="col">Description</th>
+          <th scope="col">Montant</th>
         </tr>
       </thead>
       

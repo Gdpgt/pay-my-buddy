@@ -14,6 +14,7 @@
 
       <output id="feedback-message" tabindex="-1">
         <span th:if="${registrationSuccess}" th:text="${registrationSuccess}" class="flash-feedback"></span>
+        <span th:if="${registrationError}" th:text="${registrationError}" class="field-error"></span>
         <span th:if="${param.error}" role="alert" class="field-error">Email ou mot de passe incorrect.</span>
       </output>
 

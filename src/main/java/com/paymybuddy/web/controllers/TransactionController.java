@@ -60,7 +60,7 @@ public class TransactionController {
     public String processTransaction(@Valid @ModelAttribute("transactionDto") TransactionDto dto, BindingResult result, Model model, Principal principal, RedirectAttributes ra) {
 
         if (result.hasErrors()) {
-            log.warn("La transaction du user {} comporte des données non valides. ID de l'ami : {} , et montant de la transaction : {}€", principal.getName(), dto.getFriendId(), dto.getAmount());
+            log.warn("La transaction du user {} comporte des données non valides. ID de l'ami : {} , et montant de la transaction : {} EUR", principal.getName(), dto.getFriendId(), dto.getAmount());
             User loggedInUser = userService.getUserByEmail(principal.getName());
             model.addAttribute("friendList", loggedInUser.getConnectionsWithFriends());
             model.addAttribute("userBalance", loggedInUser.getBalance());

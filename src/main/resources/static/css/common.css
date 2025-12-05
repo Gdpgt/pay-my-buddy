@@ -1,6 +1,11 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
+/* Empêche la sélection sur les éléments non-textuels */
+body {
+    cursor: default;
+    user-select: none;
+}
 
 header {
     display: flex;
@@ -51,6 +56,10 @@ nav ul li form button {
     white-space: nowrap;
 }
 
+output:focus {
+    outline: none;
+}
+
 .flash-feedback {
     margin-top: 1.5rem;
     text-align: center;
@@ -70,3 +79,6 @@ nav ul li form button {
 }
 
 
+table {
+    user-select: text;
+}

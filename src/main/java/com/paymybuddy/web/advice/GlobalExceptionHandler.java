@@ -69,7 +69,7 @@ public class GlobalExceptionHandler {
         BigDecimal currentBalance = exception.getCurrentBalance();
         BigDecimal requestedAmount = exception.getRequestedAmount();
         
-        log.warn("Solde insuffisant : {}€, pour le montant de {}€", currentBalance, requestedAmount);
+        log.warn("Solde insuffisant : {} EUR, pour le montant de {} EUR", currentBalance, requestedAmount);
 
         ra.addFlashAttribute("transferError", message);
         return "redirect:/transfer";
@@ -110,7 +110,7 @@ public class GlobalExceptionHandler {
         String senderEmail = exception.getSenderEmail();
         String receiverEmail = exception.getReceiverEmail();
         
-        log.warn("Problème d'envoi de {}€, de {} à {}", requestedAmount, senderEmail, receiverEmail);
+        log.warn("Problème d'envoi de {} EUR, de {} à {}", requestedAmount, senderEmail, receiverEmail);
 
         ra.addFlashAttribute("transferError", message);
         return "redirect:/transfer";

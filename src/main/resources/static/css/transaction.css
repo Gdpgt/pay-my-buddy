@@ -20,7 +20,7 @@ body {
 }
 
 .transaction-form select {
-    width: 10rem;
+    width: 15rem;
     height: 3rem;
     padding-left: 0.5rem;
     border: 1px solid #dddcdc;

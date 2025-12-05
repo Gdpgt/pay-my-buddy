@@ -17,6 +17,7 @@
       <h3 class="titre-page">Chercher une relation</h3>
       
       <output class="connection-feedback" id="feedback-message" tabindex="-1">
+        <span th:if="${connectionsInfo}" th:text="${connectionsInfo}" class="flash-feedback"></span>
         <span th:if="${connectionError}" th:text="${connectionError}" class="field-error"></span>
       </output>
       
