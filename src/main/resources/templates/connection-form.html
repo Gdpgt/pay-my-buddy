@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="Page d'ajout de relation" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ajouter une relation</title>
   <link rel="stylesheet" th:href="@{/css/common.css}">
@@ -15,7 +16,7 @@
     <div class="connection-form-container">
       <h3 class="titre-page">Chercher une relation</h3>
       
-      <output class="connection-feedback">
+      <output class="connection-feedback" id="feedback-message" tabindex="-1">
         <span th:if="${connectionError}" th:text="${connectionError}" class="field-error"></span>
       </output>
       
@@ -33,6 +34,7 @@
           th:field="*{friendEmail}"
           type="email"
           maxlength="255"
+          required
           placeholder="Saisir une adresse email"
           aria-describedby="friendEmail-error" />
         <p 
@@ -49,6 +51,7 @@
         </button>
       </form>
     </div>
+    <script th:src="@{/js/feedback-focus.js}"></script>
   </main>
 </body>
 </html>

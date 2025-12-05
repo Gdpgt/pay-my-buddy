@@ -2,6 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="Page d'inscription à Pay My Buddy" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Inscription Utilisateur</title>
     <link rel="stylesheet" th:href="@{/css/common.css}" />
@@ -10,7 +11,7 @@
   <body>
     <main class="registration-card">
       <h1 class="logo">Pay My buddy</h1>
-      <output class='flash-feedback'>
+      <output class='flash-feedback' id="feedback-message">
         <span th:if="${registrationError}" th:text="${registrationError}" class="field-error"></span>
       </output>
 
@@ -65,5 +66,6 @@
           <button class="registration-button" type="submit">S'inscrire</button>
       </form>
     </main>
+    <script th:src="@{/js/feedback-focus.js}"></script>
   </body>
 </html>

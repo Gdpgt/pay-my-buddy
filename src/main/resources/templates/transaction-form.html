@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="Page de tranfert d'argent" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Transférer de l'argent</title>
   <link rel="stylesheet" th:href="@{/css/common.css}">
@@ -12,7 +13,7 @@
   <div th:replace="~{fragments/header :: header}"></div>
 
   <main class="transaction-page">
-    <output>
+    <output id="feedback-message" tabindex="-1">
         <span th:if="${transferInfo}" th:text="${transferInfo}" class="flash-feedback"></span>
         <span th:if="${transferError}" th:text="${transferError}" class="field-error"></span>
         <span th:if="${error}" th:text="${error}" class="field-error"></span>
@@ -92,5 +93,6 @@
       </tbody>
     </table>
   </main>
+  <script th:src="@{/js/feedback-focus.js}"></script>
 </body>
 </html>

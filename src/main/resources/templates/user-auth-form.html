@@ -2,6 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="Page de connexion à Pay My Buddy" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Authentification Utilisateur</title>
     <link rel="stylesheet" th:href="@{/css/common.css}" />
@@ -11,7 +12,7 @@
     <main class="auth-card">
       <h1 class="logo">Pay My buddy</h1>
 
-      <output aria-live="polite">
+      <output id="feedback-message" tabindex="-1">
         <span th:if="${registrationSuccess}" th:text="${registrationSuccess}" class="flash-feedback"></span>
         <span th:if="${param.error}" role="alert" class="field-error">Email ou mot de passe incorrect.</span>
       </output>
@@ -23,16 +24,19 @@
             name="email" 
             type="email"
             autocomplete="email"
-            placeholder="Mail" />
+            placeholder="Mail"
+            required />
           <label class="sr-only" for="password">Mot de passe</label>
           <input
             id="password"
             name="password"
             type="password"
             autocomplete="new-password"
-            placeholder="Mot de passe" />
+            placeholder="Mot de passe"
+            required />
           <button class="auth-button" type="submit">Se connecter</button>
       </form>
     </main>
+    <script th:src="@{/js/feedback-focus.js}"></script>
   </body>
 </html>
